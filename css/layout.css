@@ -1,0 +1,71 @@
+/* ── layout.css ─────────────────────────────────── */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mono);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Subtle noise texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Header ─────────────────────────────────────── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 32px;
+  background: linear-gradient(90deg, var(--bg) 0%, var(--surface) 50%, var(--bg) 100%);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+
+/* ── Two-column layout ──────────────────────────── */
+.container {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) 1fr;
+  min-height: calc(100vh - var(--header-h));
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Sidebar ────────────────────────────────────── */
+.sidebar {
+  border-right: 1px solid var(--border);
+  padding: 24px 18px;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  overflow-y: auto;
+  max-height: calc(100vh - var(--header-h));
+  position: sticky;
+  top: var(--header-h);
+}
+
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* ── Main content ───────────────────────────────── */
+.main-content {
+  padding: 28px 36px;
+  overflow-y: auto;
+  max-height: calc(100vh - var(--header-h));
+}
+
+.main-content::-webkit-scrollbar { width: 5px; }
+.main-content::-webkit-scrollbar-track { background: var(--bg); }
+.main-content::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }

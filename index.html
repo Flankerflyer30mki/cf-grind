@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CF·GRIND — Codeforces Problem Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/filters.css" />
+  <link rel="stylesheet" href="css/problems.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <!-- ── HEADER ─────────────────────────────────── -->
+  <header class="site-header">
+    <div class="logo">CF<span class="logo-dot">·</span>GRIND</div>
+    <div class="tagline">Unsolved problem tracker<br />for Codeforces</div>
+    <div class="handle-bar">
+      <input
+        type="text"
+        id="handleInput"
+        class="handle-input"
+        placeholder="your_handle"
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <button class="btn btn-primary" id="fetchBtn" onclick="App.fetchData()">FETCH</button>
+    </div>
+  </header>
+
+  <!-- ── MAIN LAYOUT ─────────────────────────────── -->
+  <div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="filter-group">
+        <span class="filter-label">Problems per page</span>
+        <div class="page-size-row">
+          <input type="number" id="pageSize" class="input-sm" value="20" min="5" max="200" />
+          <span class="input-suffix">/ page</span>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-label">Rating range</span>
+        <div class="rating-row">
+          <input type="number" id="ratingMin" class="input-sm" placeholder="800"  min="800" max="3500" step="100" />
+          <span class="range-sep">—</span>
+          <input type="number" id="ratingMax" class="input-sm" placeholder="3500" min="800" max="3500" step="100" />
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-label">Tag filter mode</span>
+        <div class="tag-mode-toggle">
+          <button class="tag-mode-btn active-include" id="includeBtn" onclick="Filters.setTagMode('include')">+ INCLUDE</button>
+          <button class="tag-mode-btn" id="excludeBtn"  onclick="Filters.setTagMode('exclude')">− EXCLUDE</button>
+        </div>
+        <input type="text" id="tagSearch" class="input-tag-search" placeholder="search tags…" oninput="Filters.renderTagList()" />
+        <div class="tags-list" id="tagsList"></div>
+      </div>
+
+      <div class="filter-group" id="selectedTagsGroup" style="display:none">
+        <span class="filter-label">Active filters</span>
+        <div class="selected-tags" id="selectedTags"></div>
+      </div>
+
+      <button class="btn btn-apply" onclick="App.applyFilters()">▶ APPLY FILTERS</button>
+
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-content" id="mainContent">
+      <div class="center-msg" id="emptyState">
+        <div class="empty-icon">⌨</div>
+        <h3>Enter your Codeforces handle</h3>
+        <p>Type your handle above and click <strong>FETCH</strong>. We'll pull every problem from Codeforces and hide the ones you've already solved.</p>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <!-- SCRIPTS (order matters) -->
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

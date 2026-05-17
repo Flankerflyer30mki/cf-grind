@@ -1,0 +1,143 @@
+/* ── filters.css ─────────────────────────────────── */
+
+/* Filter group wrapper */
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filter-label {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Page size row */
+.page-size-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.input-suffix {
+  color: var(--muted);
+  font-size: 0.74rem;
+}
+
+/* Rating row */
+.rating-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.range-sep {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+/* Tag mode toggle */
+.tag-mode-toggle {
+  display: flex;
+  gap: 6px;
+}
+.tag-mode-btn {
+  flex: 1;
+  padding: 5px;
+  font-size: 0.68rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--muted);
+  transition: all 0.15s;
+}
+.tag-mode-btn:hover { border-color: var(--text); color: var(--text); }
+.tag-mode-btn.active-include {
+  background: var(--green-dim);
+  border-color: var(--green);
+  color: var(--green);
+}
+.tag-mode-btn.active-exclude {
+  background: var(--red-dim);
+  border-color: var(--red);
+  color: var(--red);
+}
+
+/* Tags list (scrollable) */
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-height: 210px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.tags-list::-webkit-scrollbar { width: 3px; }
+.tags-list::-webkit-scrollbar-track { background: transparent; }
+.tags-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* Tag chip */
+.tag-chip {
+  font-size: 0.67rem;
+  padding: 3px 9px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  transition: all 0.13s;
+}
+.tag-chip:hover { border-color: var(--text); color: var(--text); }
+.tag-chip.included {
+  background: var(--green-dim);
+  border-color: var(--green);
+  color: var(--green);
+}
+.tag-chip.excluded {
+  background: var(--red-dim);
+  border-color: var(--red);
+  color: var(--red);
+  text-decoration: line-through;
+}
+
+/* Selected tags display */
+.selected-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  min-height: 24px;
+}
+.sel-tag {
+  font-size: 0.67rem;
+  padding: 3px 9px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  user-select: none;
+}
+.sel-tag.inc {
+  background: var(--green-dim);
+  border: 1px solid var(--green);
+  color: var(--green);
+}
+.sel-tag.exc {
+  background: var(--red-dim);
+  border: 1px solid var(--red);
+  color: var(--red);
+  text-decoration: line-through;
+}
+.sel-tag .remove-tag {
+  cursor: pointer;
+  font-size: 0.72rem;
+  opacity: 0.65;
+  transition: opacity 0.1s;
+}
+.sel-tag .remove-tag:hover { opacity: 1; }

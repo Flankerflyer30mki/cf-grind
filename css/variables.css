@@ -1,0 +1,50 @@
+/* ── variables.css ──────────────────────────────── */
+:root {
+  /* Backgrounds */
+  --bg:         #0a0a0f;
+  --surface:    #111118;
+  --surface2:   #18181f;
+  --surface3:   #1f1f2a;
+
+  /* Borders */
+  --border:     #2a2a3a;
+  --border2:    #1e1e2c;
+
+  /* Accent palette */
+  --accent:     #00e5ff;
+  --accent-dim: rgba(0, 229, 255, 0.12);
+  --accent2:    #7c3aed;
+  --green:      #00ff88;
+  --green-dim:  rgba(0, 255, 136, 0.10);
+  --red:        #ff3e6c;
+  --red-dim:    rgba(255, 62, 108, 0.10);
+  --yellow:     #ffd600;
+
+  /* Text */
+  --text:       #e8e8f0;
+  --muted:      #6b6b85;
+  --muted2:     #44445a;
+
+  /* Solved state */
+  --solved-bg:      #0d1f18;
+  --solved-border:  #1a3a28;
+
+  /* Rating tier colors */
+  --r-grey:   #999999;
+  --r-green:  #00c853;
+  --r-cyan:   #00b0ff;
+  --r-blue:   #448aff;
+  --r-violet: #aa00ff;
+  --r-orange: #ff6d00;
+  --r-red:    #ff1744;
+
+  /* Typography */
+  --font-mono:    'JetBrains Mono', monospace;
+  --font-display: 'Syne', sans-serif;
+
+  /* Sizing */
+  --header-h:  64px;
+  --sidebar-w: 280px;
+  --radius:    8px;
+  --radius-sm: 5px;
+}

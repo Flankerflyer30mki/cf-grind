@@ -1,0 +1,40 @@
+/* ── animations.css ──────────────────────────────── */
+
+@keyframes shimmer {
+  from { transform: translateX(-200%); }
+  to   { transform: translateX(350%); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+/* Page-in animation for problem rows */
+.problem-grid .problem-row {
+  animation: fadeIn 0.18s ease both;
+}
+
+/* Stagger first 10 rows */
+.problem-row:nth-child(1)  { animation-delay: 0.02s; }
+.problem-row:nth-child(2)  { animation-delay: 0.04s; }
+.problem-row:nth-child(3)  { animation-delay: 0.06s; }
+.problem-row:nth-child(4)  { animation-delay: 0.08s; }
+.problem-row:nth-child(5)  { animation-delay: 0.10s; }
+.problem-row:nth-child(6)  { animation-delay: 0.12s; }
+.problem-row:nth-child(7)  { animation-delay: 0.14s; }
+.problem-row:nth-child(8)  { animation-delay: 0.16s; }
+.problem-row:nth-child(9)  { animation-delay: 0.18s; }
+.problem-row:nth-child(10) { animation-delay: 0.20s; }
+
+/* Fetch button pulse when loading */
+#fetchBtn.loading {
+  animation: pulse 1s infinite;
+  pointer-events: none;
+  opacity: 0.7;
+}
